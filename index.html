@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lose context lab</title>
+    <style>
+        html, body {margin: 0; padding: 0; width: 100%; height: 10}
+        #setDiv {left: 20px; top: 20px; position: fixed}
+        #container {position: fixed; left: 20px; top: 100px; height: 500px; width: 500px; background-color: antiquewhite}
+        #containerCanvas {width: 100%; height: 100%; background-color: aqua}
+    </style>
+    <script>
+        function setContainerCanvasDisplayNone() {
+            const canvas = document.getElementById("canvas")
+            console.log("canvas.clientWidth, canvas.clientHeight, canvas.width, canvas.height", canvas.clientWidth, canvas.clientHeight, canvas.width, canvas.height)
+
+            document.getElementById("containerCanvas").style.display = "none"
+            console.log("canvas.clientWidth, canvas.clientHeight, canvas.width, canvas.height", canvas.clientWidth, canvas.clientHeight, canvas.width, canvas.height)
+        }
+
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+
+            document.getElementById("setDiv").onclick = setContainerCanvasDisplayNone
+        });
+    </script>
+</head>
+<body>
+  <button id="setDiv">Скрыть div</button>
+  <div id="container">
+      <div id="containerCanvas">
+          <canvas id="canvas"></canvas>
+      </div>
+  </div>
+</body>
+</html>
