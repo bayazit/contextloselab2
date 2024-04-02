@@ -14,6 +14,9 @@
         function initBabylon() {
             const canvas = document.getElementById("canvas");
             const engine = new BABYLON.Engine(canvas, true, {disableWebGL2Support: false});
+            engine.setHardwareScalingLevel(1 / window.devicePixelRatio)
+            console.log('engine.getRenderWidth(), engine.getRenderHeight()', engine.getRenderWidth(), engine.getRenderHeight())
+            console.log('engine._gl.drawingBufferWidth', engine._gl.drawingBufferWidth)
             const createScene = function () {
                 const scene = new BABYLON.Scene(engine);
                 const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
@@ -50,7 +53,8 @@
             initBabylon()
         });
     </script>
-    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
+<!--    <script src="babylon.max.js"></script>-->
 </head>
 <body>
   <button id="setDiv">Скрыть div</button>
